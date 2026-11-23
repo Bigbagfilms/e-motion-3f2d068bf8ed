@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <title>E-MOTION 2027 — Бизнес диагностика и дорожная карта | Бизнес Продюсер</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Montserrat & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: '#F6F4EF',
+            paperDark: '#ECE9E1',
+            ink: '#111111',
+            inkSoft: '#222222',
+            muted: '#555555',
+            accent: '#007AFF',
+            accentHover: '#0062CC',
+          },
+          fontFamily: {
+            display: ['Montserrat', 'sans-serif'],
+            sans: ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* Бумажная текстура с легким зерном в стиле презентации */
+    body {
+      background-color: #F6F4EF;
+      color: #111111;
+      font-family: 'Inter', sans-serif;
+      background-image:
+        radial-gradient(rgba(17, 17, 17, 0.045) 1px, transparent 0),
+        radial-gradient(rgba(17, 17, 17, 0.025) 1px, transparent 0);
+      background-size: 28px 28px;
+      background-position: 0 0, 14px 14px;
+      overflow-x: hidden;
+    }
+
+    .font-display-tight {
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: -0.04em;
+      line-height: 0.96;
+    }
+
+    /* Строгие пунктирные рамки 1.5px dashed */
+    .dashed-card {
+      border: 1.5px dashed #555555;
+      background-color: rgba(255, 255, 255, 0.42);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .dashed-card:hover {
+      border-color: #111111;
+      background-color: rgba(255, 255, 255, 0.78);
+      transform: translateY(-2px);
+    }
+
+    /* Единообразные пилюли навигации без переноса текста */
+    .nav-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 32px;
+      padding: 0 12px;
+      white-space: nowrap;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    /* Кастомный ползунок для калькулятора */
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      background: transparent;
+    }
+    input[type="range"]::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 4px;
+      background: #D4D0C7;
+      border-radius: 999px;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 18px;
+      width: 18px;
+      border-radius: 4px;
+      background: #007AFF;
+      border: 2px solid #111111;
+      cursor: pointer;
+      margin-top: -7px;
+      transition: transform 0.15s ease;
+    }
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+    }
+
+    /* Кастомный чекбокс дорожной карты */
+    .task-checkbox {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 22px;
+      height: 22px;
+      border: 1.5px solid #111111;
+      border-radius: 4px;
+      background: #FFFFFF;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+    .task-checkbox:checked {
+      background: #007AFF;
+      border-color: #007AFF;
+    }
+    .task-checkbox:checked::after {
+      content: '';
+      width: 6px;
+      height: 11px;
+      border: solid white;
+      border-width: 0 2.5px 2.5px 0;
+      transform: rotate(45deg);
+      margin-bottom: 2px;
+    }
+
+    /* Скрытие скроллбара для горизонтальной ленты меню на узких мобильных экранах */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-accent selection:text-white">
+
+  <!-- ВЕРХНЯЯ ПАНЕЛЬ НАВИГАЦИИ И ШКАЛА ПРОГРЕССА -->
+  <header class="sticky top-0 z-50 bg-paper/95 backdrop-blur-md border-b border-ink/15">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
+      <!-- Логотип-пирамида + лаконичное название -->
+      <a href="#hero" class="flex items-center gap-2.5 flex-shrink-0 group">
+        <svg class="w-7 h-7 text-ink transition-transform duration-300 group-hover:scale-105" viewBox="0 0 36 32" fill="none">
+          <path d="M18 2L3 28H33L18 2Z" fill="#111111"/>
+          <line x1="1" y1="7" x2="35" y2="7" stroke="#F6F4EF" stroke-width="1.6"/>
+          <line x1="1" y1="11" x2="35" y2="11" stroke="#F6F4EF" stroke-width="1.6"/>
+          <line x1="1" y1="15" x2="35" y2="15" stroke="#F6F4EF" stroke-width="1.6"/>
+          <line x1="1" y1="19" x2="35" y2="19" stroke="#F6F4EF" stroke-width="1.6"/>
+          <line x1="1" y1="23" x2="35" y2="23" stroke="#F6F4EF" stroke-width="1.6"/>
+        </svg>
+        <div class="leading-none">
+          <span class="font-display font-black text-xs sm:text-sm tracking-tight uppercase block text-ink whitespace-nowrap">E-MOTION 2027</span>
+          <span class="text-[11px] font-medium text-muted block mt-0.5 whitespace-nowrap">Бизнес диагностика</span>
+        </div>
+      </a>
+
+      <!-- Единообразное однострочное меню (ни один пункт не переносится на 2 строку) -->
+      <nav class="hidden lg:flex items-center gap-1.5 bg-paperDark/80 p-1 rounded-full border border-ink/10" aria-label="Разделы презентации">
+        <a href="#hero" class="nav-pill bg-ink text-white" data-slide="01/06">01 • Старт</a>
+        <a href="#diagnostics" class="nav-pill text-muted hover:text-ink" data-slide="02/06">02 • Точка А → Б</a>
+        <a href="#calculator" class="nav-pill text-muted hover:text-ink" data-slide="03/06">03 • Декомпозиция</a>
+        <a href="#roadmap" class="nav-pill text-muted hover:text-ink" data-slide="04/06">04 • Дорожная карта</a>
+        <a href="#process" class="nav-pill text-muted hover:text-ink" data-slide="05/06">05 • Как работаем</a>
+        <a href="#about" class="nav-pill text-muted hover:text-ink" data-slide="06/06">06 • Обо мне</a>
+      </nav>
+
+      <!-- Прогресс-шкала выполнения 12 шагов + счетчик слайдов -->
+      <div class="flex items-center gap-2.5 sm:gap-3.5 flex-shrink-0">
+        <div class="flex items-center gap-2 bg-white border border-ink/20 rounded-full px-3 h-8">
+          <span class="text-[11px] font-bold text-muted hidden sm:inline whitespace-nowrap">План:</span>
+          <div class="w-14 sm:w-20 h-2 bg-paperDark rounded-full overflow-hidden">
+            <div id="header-progress-bar" class="h-full bg-accent transition-all duration-300" style="width: 0%"></div>
+          </div>
+          <span id="header-progress-count" class="text-[11px] font-display font-extrabold text-ink tabular-nums whitespace-nowrap">0/12</span>
+        </div>
+        <span id="current-slide-indicator" class="font-display font-black text-xs sm:text-sm tracking-tight text-ink tabular-nums whitespace-nowrap">01/06</span>
+      </div>
+    </div>
+
+    <!-- Мобильная однострочная лента навигации -->
+    <div class="lg:hidden border-t border-ink/10 bg-paper/95 px-4 py-1.5 overflow-x-auto no-scrollbar">
+      <div class="flex items-center gap-1.5 w-max">
+        <a href="#hero" class="nav-pill bg-ink text-white" data-slide="01/06">01 • Старт</a>
+        <a href="#diagnostics" class="nav-pill text-muted hover:text-ink" data-slide="02/06">02 • Точка А → Б</a>
+        <a href="#calculator" class="nav-pill text-muted hover:text-ink" data-slide="03/06">03 • Декомпозиция</a>
+        <a href="#roadmap" class="nav-pill text-muted hover:text-ink" data-slide="04/06">04 • Дорожная карта</a>
+        <a href="#process" class="nav-pill text-muted hover:text-ink" data-slide="05/06">05 • Как работаем</a>
+        <a href="#about" class="nav-pill text-muted hover:text-ink" data-slide="06/06">06 • Обо мне</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6">
+
+    <!-- ========================================================= -->
+    <!-- СЛАЙД 01/06: ЛАКОНИЧНЫЙ HERO-БЛОК                         -->
+    <!-- ========================================================= -->
+    <section id="hero" data-slide="01/06" class="min-h-[calc(100vh-5rem)] py-12 sm:py-16 flex flex-col justify-between border-b border-ink/15">
+      <!-- Верхняя строка: пирамида-логотип + бейдж -->
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <svg class="w-11 h-10 text-ink" viewBox="0 0 48 42" fill="none">
+            <path d="M24 2L4 38H44L24 2Z" fill="#111111"/>
+            <line x1="0" y1="9" x2="48" y2="9" stroke="#F6F4EF" stroke-width="2"/>
+            <line x1="0" y1="14" x2="48" y2="14" stroke="#F6F4EF" stroke-width="2"/>
+            <line x1="0" y1="19" x2="48" y2="19" stroke="#F6F4EF" stroke-width="2"/>
+            <line x1="0" y1="24" x2="48" y2="24" stroke="#F6F4EF" stroke-width="2"/>
+            <line x1="0" y1="29" x2="48" y2="29" stroke="#F6F4EF" stroke-width="2"/>
+            <line x1="0" y1="34" x2="48" y2="34" stroke="#F6F4EF" stroke-width="2"/>
+          </svg>
+          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 border border-ink/20 text-xs font-bold uppercase tracking-wider text-ink">
+            <span class="w-2 h-2 rounded-full bg-accent"></span>
+            Для Зули • E-motion
+          </span>
+        </div>
+
+        <div class="inline-flex items-center gap-2 text-xs font-medium text-muted">
+          <span class="w-5 h-5 rounded-full bg-accent text-white font-bold text-xs flex items-center justify-center flex-shrink-0">i</span>
+          <span>Бизнес Продюсер • Стратегия масштабирования</span>
+        </div>
+      </div>
+
+      <!-- Центральный лаконичный заголовок -->
+      <div class="my-14 sm:my-20">
+        <h1 class="font-display-tight font-black text-5xl sm:text-7xl md:text-8xl lg:text-[96px] uppercase text-ink">
+          E-MOTION <span class="text-accent">2027</span>
+        </h1>
+        <p class="mt-4 text-2xl sm:text-4xl font-display font-extrabold tracking-tight text-inkSoft">
+          Бизнес диагностика
+        </p>
+        <p class="mt-4 text-sm sm:text-base text-muted max-w-xl leading-relaxed">
+          Оцифровка текущей модели, ключевые точки роста до 360 млн ₸ в год и приоритезированная дорожная карта из 12 шагов для перехода в лигу продюсерских центров.
+        </p>
+        <div class="mt-8 flex flex-wrap items-center gap-3">
+          <a href="#roadmap" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-ink hover:bg-accent text-white font-display font-extrabold text-xs uppercase tracking-wider transition-colors">
+            <span>Открыть дорожную карту (12 шагов)</span>
+            <span>↓</span>
+          </a>
+          <a href="#diagnostics" class="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-white/80 hover:bg-white border border-ink/25 text-ink font-display font-extrabold text-xs uppercase tracking-wider transition-colors">
+            <span>Суть диагностики</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Нижняя панель с 3 опорными цифрами + полусолнце с лучами -->
+      <div class="pt-8 border-t border-ink/15 flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 flex-1">
+          <div>
+            <p class="font-display font-extrabold text-xs uppercase tracking-wider text-muted">ЛИЧНЫЙ ДОХОД ЗУЛИ</p>
+            <p class="mt-1 text-xl sm:text-2xl font-display font-black text-ink">20 → 60 млн ₸</p>
+            <p class="text-xs text-muted mt-0.5">Рост личных дивидендов в 3 раза (доля 40%)</p>
+          </div>
+          <div>
+            <p class="font-display font-extrabold text-xs uppercase tracking-wider text-accent">ЦЕЛЕВОЙ ОБОРОТ 2027</p>
+            <p class="mt-1 text-xl sm:text-2xl font-display font-black text-ink">360 млн ₸/год</p>
+            <p class="text-xs text-muted mt-0.5">С учетом 20% «поправки на ветер» и роста ФОТ</p>
+          </div>
+          <div>
+            <p class="font-display font-extrabold text-xs uppercase tracking-wider text-muted">НОВАЯ МОДЕЛЬ СДЕЛОК</p>
+            <p class="mt-1 text-xl sm:text-2xl font-display font-black text-ink">36 × 10 млн ₸</p>
+            <p class="text-xs text-muted mt-0.5">109 целевых пресейлов при конверсии ~33%</p>
+          </div>
+        </div>
+
+        <!-- Минималистичное полусолнце с расходящимися лучами -->
+        <div class="hidden sm:flex justify-end flex-shrink-0" aria-hidden="true">
+          <svg class="w-28 h-14 text-ink" viewBox="0 0 120 60" fill="none">
+            <line x1="0" y1="58" x2="120" y2="58" stroke="#111111" stroke-width="1.2"/>
+            <path d="M52 58C52 53.5817 55.5817 50 60 50C64.4183 50 68 53.5817 68 58H52Z" fill="#111111"/>
+            <g stroke="#111111" stroke-width="1.1">
+              <line x1="60" y1="58" x2="10" y2="46"/>
+              <line x1="60" y1="58" x2="15" y2="34"/>
+              <line x1="60" y1="58" x2="23" y2="23"/>
+              <line x1="60" y1="58" x2="34" y2="14"/>
+              <line x1="60" y1="58" x2="46" y2="8"/>
+              <line x1="60" y1="58" x2="60" y2="6"/>
+              <line x1="60" y1="58" x2="74" y2="8"/>
+              <line x1="60" y1="58" x2="86" y2="14"/>
+              <line x1="60" y1="58" x2="97" y2="23"/>
+              <line x1="60" y1="58" x2="105" y2="34"/>
+              <line x1="60" y1="58" x2="110" y2="46"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- СЛАЙД 02/06: СУТЬ ДИАГНОСТИКИ (ТОЧКА А → ТОЧКА Б)         -->
+    <!-- ========================================================= -->
+    <section id="diagnostics" data-slide="02/06" class="py-16 sm:py-20 border-b border-ink/15">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-accent">Раздел 01 • Оцифровка модели</span>
+          <h2 class="font-display-tight font-black text-3xl sm:text-5xl uppercase text-ink mt-2">
+            СУТЬ ДИАГНОСТИКИ: ТОЧКА А → ТОЧКА Б
+          </h2>
+        </div>
+        <p class="text-sm text-muted max-w-md">
+          Перевод бизнеса из головы в твердые цифры и смена парадигмы с графической студии на продюсерский центр.
+        </p>
+      </div>
+
+      <!-- Сравнительные карточки Точка А vs Точка Б -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
+        <!-- Точка А -->
+        <div class="dashed-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-2 pb-4 mb-6 border-b border-ink/15">
+              <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-muted">Точка А • Факт 2025–2026</span>
+                <h3 class="font-display font-black text-xl uppercase text-ink mt-1">Ручной режим и «комфорт»</h3>
+              </div>
+              <span class="px-3 py-1 rounded-md bg-ink/10 text-ink font-display font-extrabold text-xs uppercase">Текущий статус</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3.5">
+              <div class="bg-paper rounded-xl p-4 border border-ink/10">
+                <span class="text-xs text-muted block">Личный доход Зули</span>
+                <span class="font-display font-black text-lg sm:text-xl text-ink mt-1 block">~20–23 млн ₸/год</span>
+                <span class="text-[11px] text-muted">~1,6–1,9 млн ₸/мес (доля 40%)</span>
+              </div>
+              <div class="bg-paper rounded-xl p-4 border border-ink/10">
+                <span class="text-xs text-muted block">Годовой оборот</span>
+                <span class="font-display font-black text-lg sm:text-xl text-ink mt-1 block">~85–100 млн ₸</span>
+                <span class="text-[11px] text-muted">20–28 контрактов в год</span>
+              </div>
+              <div class="bg-paper rounded-xl p-4 border border-ink/10">
+                <span class="text-xs text-muted block">Средний чек проекта</span>
+                <span class="font-display font-black text-lg sm:text-xl text-ink mt-1 block">~3–4 млн ₸</span>
+                <span class="text-[11px] text-muted">Много мелких и срочных правок</span>
+              </div>
+              <div class="bg-paper rounded-xl p-4 border border-ink/10">
+                <span class="text-xs text-muted block">Входящий поток</span>
+                <span class="font-display font-black text-lg sm:text-xl text-ink mt-1 block">37–42 запроса</span>
+                <span class="text-[11px] text-muted">Продажи включаются в «панике»</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-ink/10 text-xs text-muted leading-relaxed">
+            <strong class="text-ink">Главный риск:</strong> Попытка масштабировать старую модель на мелких чеках потребует 40+ человек и приведет к выгоранию собственников и кассовым/налоговым разрывам.
+          </div>
+        </div>
+
+        <!-- Точка Б -->
+        <div class="dashed-card rounded-2xl p-6 sm:p-8 !border-accent !bg-white/80 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-2 pb-4 mb-6 border-b border-accent/20">
+              <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-accent">Точка Б • Стратегия 2027</span>
+                <h3 class="font-display font-black text-xl uppercase text-ink mt-1">Продюсерский центр</h3>
+              </div>
+              <span class="px-3 py-1 rounded-md bg-accent text-white font-display font-extrabold text-xs uppercase">Цель ×3</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3.5">
+              <div class="bg-paper rounded-xl p-4 border border-accent/25">
+                <span class="text-xs text-muted block">Личный доход Зули</span>
+                <span class="font-display font-black text-lg sm:text-xl text-accent mt-1 block">60 млн ₸/год</span>
+                <span class="text-[11px] text-muted">5 млн ₸/мес чистыми дивидендами</span>
+              </div>
+              <div class="bg-paper rounded-xl p-4 border border-accent/25">
+                <span class="text-xs text-muted block">Целевой оборот</span>
+                <span class="font-display font-black text-lg sm:text-xl text-accent mt-1 block">360 млн ₸/год</span>
+                <span class="text-[11px] text-muted">+20% «поправка на ветер» и рост ФОТ</span>
+              </div>
+              <div class="bg-paper rounded-xl p-4 border border-accent/25">
+                <span class="text-xs text-muted block">Крупные контракты</span>
+                <span class="font-display font-black text-lg sm:text-xl text-ink mt-1 block">36 × 10 млн ₸</span>
+                <span class="text-[11px] text-muted">Фильтр на входе: отсечка &lt; 5 млн ₸</span>
+              </div>
+              <div class="bg-paper rounded-xl p-4 border border-accent/25">
+                <span class="text-xs text-muted block">Воронка пресейлов</span>
+                <span class="font-display font-black text-lg sm:text-xl text-ink mt-1 block">109 запросов/год</span>
+                <span class="text-[11px] text-muted">Конверсия ~33% (1 из 3 сделок)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-accent/20 text-xs text-ink leading-relaxed">
+            <strong class="text-accent">Архитектура 109 лидов:</strong> Прямые постоянные клиенты с допродажей шоу/музеев (~40), партнерская сеть и «агашки» на опережение (~20+), агенты за 3% (~10+), сбор рекомендаций с базы (~10) и коллаборации.
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 ключевых инсайтов диагностики -->
+      <h3 class="font-display font-black text-lg uppercase tracking-tight text-ink mb-5 flex items-center gap-2.5">
+        <span class="w-5 h-5 rounded-full bg-accent text-white font-bold text-xs flex items-center justify-center flex-shrink-0">i</span>
+        <span>5 ключевых инсайтов по итогам разговора</span>
+      </h3>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="dashed-card rounded-2xl p-6">
+          <div class="flex items-center justify-between mb-3">
+            <span class="font-display font-black text-2xl text-accent">01</span>
+            <span class="text-[11px] font-bold uppercase px-2.5 py-0.5 rounded bg-ink text-white">Ритм и энергия</span>
+          </div>
+          <h4 class="font-display font-extrabold text-base uppercase text-ink mb-2">Выход из цикла «паника → аврал → комфорт»</h4>
+          <p class="text-sm text-inkSoft leading-relaxed">
+            Сейчас развитие включается только когда заканчиваются заказы. Чтобы расти системно, нужен регулярный еженедельный ритм (спринты), финансовая дисциплина и выход Зули из рутины в стратегию.
+          </p>
+        </div>
+
+        <div class="dashed-card rounded-2xl p-6">
+          <div class="flex items-center justify-between mb-3">
+            <span class="font-display font-black text-2xl text-accent">02</span>
+            <span class="text-[11px] font-bold uppercase px-2.5 py-0.5 rounded bg-ink text-white">Финансы</span>
+          </div>
+          <h4 class="font-display font-extrabold text-base uppercase text-ink mb-2">Цифры в голове и отсутствие фондов</h4>
+          <p class="text-sm text-inkSoft leading-relaxed">
+            Управленческий учет не систематизирован (цифры у партнера или по ощущениям). Внедрение фондов по системе Хаббарда и платежного календаря защитит от кассовых разрывов и создаст резерв.
+          </p>
+        </div>
+
+        <div class="dashed-card rounded-2xl p-6">
+          <div class="flex items-center justify-between mb-3">
+            <span class="font-display font-black text-2xl text-accent">03</span>
+            <span class="text-[11px] font-bold uppercase px-2.5 py-0.5 rounded bg-ink text-white">Налоги и ОУР</span>
+          </div>
+          <h4 class="font-display font-extrabold text-base uppercase text-ink mb-2">Налоговый порог 40 млн ₸ и 26% на ОУР</h4>
+          <p class="text-sm text-inkSoft leading-relaxed">
+            60% крупных клиентов и госзаказов работают только с общеустановленным режимом. Под оборот 360 млн ₸ нужно заранее подготовить пул из <strong>4–5 ИП/ТОО</strong> и единое пакетное бухсопровождение (~200 тыс. ₸/мес).
+          </p>
+        </div>
+
+        <div class="dashed-card rounded-2xl p-6">
+          <div class="flex items-center justify-between mb-3">
+            <span class="font-display font-black text-2xl text-accent">04</span>
+            <span class="text-[11px] font-bold uppercase px-2.5 py-0.5 rounded bg-ink text-white">Продукт и чек</span>
+          </div>
+          <h4 class="font-display font-extrabold text-base uppercase text-ink mb-2">Отсечка &lt; 5 млн ₸ и метод опережения</h4>
+          <p class="text-sm text-inkSoft leading-relaxed">
+            Запросы дешевле 5 млн ₸ (если не делаются за 4–7 дней) съедают маржу и время. Главный драйвер крупных чеков (10–40 млн ₸) — проактивный заход с готовыми концепт-тизерами до тендера.
+          </p>
+        </div>
+
+        <div class="dashed-card rounded-2xl p-6 md:col-span-2 lg:col-span-2">
+          <div class="flex items-center justify-between mb-3">
+            <span class="font-display font-black text-2xl text-accent">05</span>
+            <span class="text-[11px] font-bold uppercase px-2.5 py-0.5 rounded bg-accent text-white">Команда и культура</span>
+          </div>
+          <h4 class="font-display font-extrabold text-base uppercase text-ink mb-2">Сопротивление команды и присвоение целей</h4>
+          <p class="text-sm text-inkSoft leading-relaxed">
+            Текущей команде комфортно работать от задачи к задаче, и рост в 3–6 раз вызовет сопротивление. Необходима <strong>стратегическая сессия с командой</strong>, чтобы ребята сами стали соавторами плана роста, а также четкое разделение ролей: партнер берет производство, Зули — развитие и VIP-сделки.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- СЛАЙД 03/06: ИНТЕРАКТИВНЫЙ КАЛЬКУЛЯТОР ДЕКОМПОЗИЦИИ 2027  -->
+    <!-- ========================================================= -->
+    <section id="calculator" data-slide="03/06" class="py-16 sm:py-20 border-b border-ink/15">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-accent">Раздел 02 • Финансовая модель</span>
+          <h2 class="font-display-tight font-black text-3xl sm:text-5xl uppercase text-ink mt-2">
+            ДЕКОМПОЗИЦИЯ МОДЕЛИ 2027
+          </h2>
+        </div>
+        <button type="button" onclick="resetCalculator()" class="self-start md:self-auto px-4 py-2 rounded-xl border border-ink/25 bg-white/80 hover:bg-ink hover:text-white text-xs font-display font-extrabold uppercase tracking-wider transition-colors">
+          Сбросить к плану сессии
+        </button>
+      </div>
+
+      <div class="dashed-card rounded-2xl p-6 sm:p-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <!-- Ползунки -->
+          <div class="lg:col-span-6 space-y-6">
+            <div>
+              <div class="flex justify-between text-sm font-bold mb-2">
+                <span class="text-ink">Целевой оборот компании (в год)</span>
+                <span id="val-revenue" class="text-accent font-display font-extrabold">360 млн ₸</span>
+              </div>
+              <input type="range" id="inp-revenue" min="100" max="600" step="10" value="360" oninput="recalculateModel()" />
+              <div class="flex justify-between text-[11px] text-muted mt-1">
+                <span>100 млн ₸ (факт)</span>
+                <span>360 млн ₸ (план +20%)</span>
+                <span>600 млн ₸</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-sm font-bold mb-2">
+                <span class="text-ink">Средний чек одного контракта</span>
+                <span id="val-check" class="text-accent font-display font-extrabold">10 млн ₸</span>
+              </div>
+              <input type="range" id="inp-check" min="3" max="25" step="1" value="10" oninput="recalculateModel()" />
+              <div class="flex justify-between text-[11px] text-muted mt-1">
+                <span>3 млн ₸ (студия)</span>
+                <span>10 млн ₸ (продюсерский)</span>
+                <span>25 млн ₸ (крупные шоу)</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-sm font-bold mb-2">
+                <span class="text-ink">Конверсия из пресейла в контракт</span>
+                <span id="val-conv" class="text-accent font-display font-extrabold">33%</span>
+              </div>
+              <input type="range" id="inp-conv" min="15" max="60" step="1" value="33" oninput="recalculateModel()" />
+              <div class="flex justify-between text-[11px] text-muted mt-1">
+                <span>15% (холодный)</span>
+                <span>33% (целевой бенчмарк)</span>
+                <span>60% (теплая база)</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-sm font-bold mb-2">
+                <span class="text-ink">Доля Зули в чистой прибыли</span>
+                <span id="val-share" class="text-accent font-display font-extrabold">40%</span>
+              </div>
+              <input type="range" id="inp-share" min="25" max="60" step="5" value="40" oninput="recalculateModel()" />
+              <div class="flex justify-between text-[11px] text-muted mt-1">
+                <span>25%</span>
+                <span>40% (текущая доля)</span>
+                <span>60%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Итоговые карточки расчета -->
+          <div class="lg:col-span-6 bg-paper rounded-2xl p-6 border border-ink/20">
+            <div class="flex items-center justify-between pb-3 mb-5 border-b border-ink/15">
+              <span class="font-display font-extrabold text-xs uppercase tracking-wider text-ink">Расчет нагрузки и прибыли</span>
+              <span class="text-[11px] font-semibold text-muted">Маржа модели ~41.7%</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="bg-white rounded-xl p-4 border border-ink/10">
+                <span class="text-xs text-muted block">Личный доход Зули в год</span>
+                <span id="out-income" class="font-display font-black text-2xl sm:text-3xl text-accent mt-1 block">60.0 млн ₸</span>
+                <span id="out-income-month" class="text-[11px] text-muted mt-1 block">~5.0 млн ₸ в месяц</span>
+              </div>
+
+              <div class="bg-white rounded-xl p-4 border border-ink/10">
+                <span class="text-xs text-muted block">Чистая прибыль компании</span>
+                <span id="out-profit" class="font-display font-black text-2xl sm:text-3xl text-ink mt-1 block">150 млн ₸</span>
+                <span id="out-ip" class="text-[11px] text-muted mt-1 block">Пул юрлиц ОУР: 5–6 ИП</span>
+              </div>
+
+              <div class="bg-white rounded-xl p-4 border border-ink/10">
+                <span class="text-xs text-muted block">Нужно контрактов в год</span>
+                <span id="out-contracts" class="font-display font-black text-2xl sm:text-3xl text-ink mt-1 block">36 шт.</span>
+                <span id="out-contracts-month" class="text-[11px] text-muted mt-1 block">~3.0 контракта в месяц</span>
+              </div>
+
+              <div class="bg-white rounded-xl p-4 border border-ink/10">
+                <span class="text-xs text-muted block">Нужно целевых пресейлов</span>
+                <span id="out-leads" class="font-display font-black text-2xl sm:text-3xl text-ink mt-1 block">109 шт.</span>
+                <span id="out-leads-month" class="text-[11px] text-muted mt-1 block">~9.1 просчетов в месяц</span>
+              </div>
+            </div>
+
+            <div id="calc-insight" class="mt-4 p-3.5 rounded-xl bg-accent/10 border border-accent/25 text-xs text-inkSoft leading-relaxed">
+              При обороте <strong>360 млн ₸</strong> и чеке <strong>10 млн ₸</strong> достаточно закрывать <strong>3 сделки в месяц</strong> (из 9 пресейлов), чтобы выйти на <strong>60 млн ₸</strong> личного дохода.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- СЛАЙД 04/06: ИНТЕРАКТИВНАЯ ДОРОЖНАЯ КАРТА (12 ШАГОВ)      -->
+    <!-- ========================================================= -->
+    <section id="roadmap" data-slide="04/06" class="py-16 sm:py-20 border-b border-ink/15">
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-accent">Раздел 03 • Пошаговый план внедрения</span>
+          <h2 class="font-display-tight font-black text-3xl sm:text-5xl uppercase text-ink mt-2">
+            ДОРОЖНАЯ КАРТА E-MOTION
+          </h2>
+          <p class="text-sm text-muted mt-2 max-w-2xl">
+            12 приоритезированных шагов в 4 этапах. Отмечайте выполненные задачи — прогресс сохраняется автоматически.
+          </p>
+        </div>
+
+        <!-- Фильтр по приоритетам -->
+        <div class="flex flex-wrap items-center gap-2" role="group" aria-label="Фильтр приоритетов">
+          <button type="button" onclick="filterRoadmap('ALL')" data-prio="ALL" class="prio-btn px-3.5 py-2 rounded-xl text-xs font-display font-extrabold uppercase bg-ink text-white transition-all whitespace-nowrap">
+            Все (12)
+          </button>
+          <button type="button" onclick="filterRoadmap('P1')" data-prio="P1" class="prio-btn px-3.5 py-2 rounded-xl text-xs font-display font-extrabold uppercase bg-white/80 border border-ink/20 text-ink hover:border-accent transition-all whitespace-nowrap">
+            P1 • Критично
+          </button>
+          <button type="button" onclick="filterRoadmap('P2')" data-prio="P2" class="prio-btn px-3.5 py-2 rounded-xl text-xs font-display font-extrabold uppercase bg-white/80 border border-ink/20 text-ink hover:border-accent transition-all whitespace-nowrap">
+            P2 • Рост
+          </button>
+          <button type="button" onclick="filterRoadmap('P3')" data-prio="P3" class="prio-btn px-3.5 py-2 rounded-xl text-xs font-display font-extrabold uppercase bg-white/80 border border-ink/20 text-ink hover:border-accent transition-all whitespace-nowrap">
+            P3 • Масштаб
+          </button>
+        </div>
+      </div>
+
+      <!-- Визуальная шкала прогресса выполнения дорожной карты -->
+      <div class="dashed-card rounded-2xl p-5 sm:p-6 mb-10 bg-white/75">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+          <div class="flex items-center gap-2.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-accent"></span>
+            <span class="font-display font-extrabold text-xs sm:text-sm uppercase text-ink">Шкала прогресса дорожной карты</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span id="roadmap-progress-fraction" class="text-xs font-bold text-muted">Выполнено 0 из 12 шагов</span>
+            <span id="roadmap-progress-percent" class="font-display font-black text-base text-accent tabular-nums">0%</span>
+          </div>
+        </div>
+        <div class="w-full h-3.5 bg-paperDark rounded-full overflow-hidden border border-ink/15 p-0.5">
+          <div id="roadmap-progress-fill" class="h-full bg-accent rounded-full transition-all duration-300" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <!-- Контейнер 4 этапов и 12 шагов -->
+      <div id="roadmap-stages" class="space-y-10">
+
+        <!-- ЭТАП 1 -->
+        <div class="stage-block" data-stage="1">
+          <div class="flex flex-wrap items-center justify-between gap-2 pb-3 mb-5 border-b-2 border-ink">
+            <h3 class="font-display font-black text-lg sm:text-xl uppercase text-ink">
+              Этап 1. Фундамент, цифры и фиксация границ
+            </h3>
+            <span class="px-3 py-1 rounded-full bg-accent text-white font-display font-extrabold text-xs uppercase">Недели 1–2</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <!-- Шаг 1 -->
+            <article class="roadmap-card dashed-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between" data-prio="P1" data-step-id="step-1">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 rounded bg-accent text-white font-display font-extrabold text-[11px] uppercase">P1 Критично</span>
+                    <span class="text-xs font-bold text-muted">Шаг 01</span>
+                  </div>
+                  <input type="checkbox" class="task-checkbox" data-id="step-1" onchange="toggleStep('step-1', this.checked)" aria-label="Отметить шаг 1" />
+                </div>
+                <h4 class="font-display font-extrabold text-base uppercase text-ink mb-2 step-title">
+                  Оцифровка факта 2025–2026 и внедрение управленческого учета
+                </h4>
+                <p class="text-xs sm:text-sm text-inkSoft leading-relaxed mb-4">
+                  Сверить твердые цифры с партнером, внедрить фонды по Хаббарду и платежный календарь для контроля чистой прибыли.
+                </p>
+              </div>
+              <div class="pt-3 border-t border-ink/15 bg-paper/90 rounded-xl p-3 text-xs">
+                <span class="font-display font-extrabold uppercase text-ink block mb-1">Каким ресурсом решить:</span>
+                <span class="text-inkSoft">Аутсорс-финдиректор / бухгалтер + Google Таблицы / Финтабло.</span>
+              </div>
+            </article>
+
+            <!-- Шаг 2 -->
+            <article class="roadmap-card dashed-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between" data-prio="P1" data-step-id="step-2">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 rounded bg-accent text-white font-display font-extrabold text-[11px] uppercase">P1 Критично</span>
+                    <span class="text-xs font-bold text-muted">Шаг 02</span>
+                  </div>
+                  <input type="checkbox" class="task-checkbox" data-id="step-2" onchange="toggleStep('step-2', this.checked)" aria-label="Отметить шаг 2" />
+                </div>
+                <h4 class="font-display font-extrabold text-base uppercase text-ink mb-2 step-title">
+                  Введение фильтра квалификации лидов
+                </h4>
+                <p class="text-xs sm:text-sm text-inkSoft leading-relaxed mb-4">
+                  Отсечка запросов &lt; 5 млн ₸ (кроме быстрых проектов за 4–7 дней), платный/быстрый пресейл и предоплата 50–100% на срочные задачи.
+                </p>
+              </div>
+              <div class="pt-3 border-t border-ink/15 bg-paper/90 rounded-xl p-3 text-xs">
+                <span class="font-display font-extrabold uppercase text-ink block mb-1">Каким ресурсом решить:</span>
+                <span class="text-inkSoft">Регламент пресейла + CRM (AmoCRM / Bitrix24 / Notion).</span>
+              </div>
+            </article>
+
+            <!-- Шаг 3 -->
+            <article class="roadmap-card dashed-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between" data-prio="P1" data-step-id="step-3">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 rounded bg-accent text-white font-display font-extrabold text-[11px] uppercase">P1 Критично</span>
+                    <span class="text-xs font-bold text-muted">Шаг 03</span>
+                  </div>
+                  <input type="checkbox" class="task-checkbox" data-id="step-3" onchange="toggleStep('step-3', this.checked)" aria-label="Отметить шаг 3" />
+                </div>
+                <h4 class="font-display font-extrabold text-base uppercase text-ink mb-2 step-title">
+                  Стратегическая сессия с партнерами и командой
+                </h4>
+                <p class="text-xs sm:text-sm text-inkSoft leading-relaxed mb-4">
+                  «Присвоение целей» командой, фиксация зон ответственности (партнер — производство, Зули — рост) и выход из операционной рутины.
+                </p>
+              </div>
+              <div class="pt-3 border-t border-ink/15 bg-paper/90 rounded-xl p-3 text-xs">
+                <span class="font-display font-extrabold uppercase text-ink block mb-1">Каким ресурсом решить:</span>
+                <span class="text-inkSoft">Фасилитация с бизнес-продюсером / трекером (встреча с командой).</span>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- ЭТАП 2 -->
+        <div class="stage-block" data-stage="2">
+          <div class="flex flex-wrap items-center justify-between gap-2 pb-3 mb-5 border-b-2 border-ink">
+            <h3 class="font-display font-black text-lg sm:text-xl uppercase text-ink">
+              Этап 2. Юридическая и операционная безопасность
+            </h3>
+            <span class="px-3 py-1 rounded-full bg-ink text-white font-display font-extrabold text-xs uppercase">Недели 3–6</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <!-- Шаг 4 -->
+            <article class="roadmap-card dashed-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between" data-prio="P1" data-step-id="step-4">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 rounded bg-accent text-white font-display font-extrabold text-[11px] uppercase">P1 Критично</span>
+                    <span class="text-xs font-bold text-muted">Шаг 04</span>
+                  </div>
+                  <input type="checkbox" class="task-checkbox" data-id="step-4" onchange="toggleStep('step-4', this.checked)" aria-label="Отметить шаг 4" />
+                </div>
+                <h4 class="font-display font-extrabold text-base uppercase text-ink mb-2 step-title">
+                  Подготовка налоговой инфраструктуры под оборот 360 млн ₸
+                </h4>
+                <p class="text-xs sm:text-sm text-inkSoft leading-relaxed mb-4">
+                  План открытия 4–5 ИП/ТОО под пороги 40 млн ₸ (ОУР) для безопасного приема крупных B2B и государственных контрактов.
+                </p>
+              </div>
+              <div class="pt-3 border-t border-ink/15 bg-paper/90 rounded-xl p-3 text-xs">
+                <span class="font-display font-extrabold uppercase text-ink block mb-1">Каким ресурсом решить:</span>
+                <span class="text-inkSoft">Профильная бухгалтерская компания на абонентском сопровождении (до ~200 тыс. ₸/мес за пул юрлиц).</span>
+              </div>
+            </article>
+
+            <!-- Шаг 5 -->
+            <article class="roadmap-card dashed-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between" data-prio="P2" data-step-id="step-5">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 rounded bg-ink text-white font-display font-extrabold text-[11px] uppercase">P2 Рост</span>
+                    <span class="text-xs font-bold text-muted">Шаг 05</span>
+                  </div>
+                  <input type="checkbox" class="task-checkbox" data-id="step-5" onchange="toggleStep('step-5', this.checked)" aria-label="Отметить шаг 5" />
+                </div>
+                <h4 class="font-display font-extrabold text-base uppercase text-ink mb-2 step-title">
+                  Найм личного ассистента и передача администрирования
+                </h4>
+                <p class="text-xs sm:text-sm text-inkSoft leading-relaxed mb-4">
+                  Делегировать поиск нового офиса, переезд, документооборот, расписание встреч и контроль дедлайнов, чтобы освободить 40% времени Зули.
+                </p>
+              </div>
+              <div class="pt-3 border-t border-ink/15 bg-paper/90 rounded-xl p-3 text-xs">
+                <span class="font-display font-extrabold uppercase text-ink block mb-1">Каким ресурсом решить:</span>
+                <span class="text-inkSoft">HR-рекрутер / HeadHunter + четкий чек-лист онбординга.</span>
+              </div>
+            </article>
+
+            <!-- Шаг 6 -->
+            <article class="roadmap-card dashed-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between" data-prio="P2" data-step-id="step-6">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 rounded bg-ink text-white font-display font-extrabold text-[11px] uppercase">P2 Рост</span>
+                    <span class="text-xs font-bold text-muted">Шаг 06</span>
+                  </div>
+                  <input type="checkbox" class="task-checkbox" data-id="step-6" onchange="toggleStep('step-6', this.checked)" aria-label="Отметить шаг 6" />
+                </div>
+                <h4 class="font-display font-extrabold text-base uppercase text-ink mb-2 step-title">
+                  Формирование ядра продакшна в штате
+                </h4>
+                <p class="text-xs sm:text-sm text-inkSoft leading-relaxed mb-4">
+                  Перевод 3–4 ключевых дизайнеров в штат (~2 млн ₸/мес ФОТ) для снижения себестоимости и создание пула проверенных подрядчиков.
+                </p>
+              </div>
+              <div class="pt-3 border-t border-ink/15 bg-paper/90 rounded-xl p-3 text-xs">
+                <span class="font-display font-extrabold uppercase text-ink block mb-1">Каким ресурсом решить:</span>
+                <span class="text-inkSoft">Собственный HR / арт-директор + база фрилансеров (Behance, профильные чаты).</span>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- ЭТАП 3 -->
+        <div class="stage-block" data-stage="3">
+          <div class="flex flex-wrap items-center justify-between gap-2 pb-3 mb-5 border-b-2 border-ink">
+            <h3 class="font-display font-black text-lg sm:text-xl uppercase text-ink">
+              Этап 3. Упаковка и разгон управляемых каналов продаж
+            </h3>
+            <span class="px-3 py-1 rounded-full bg-ink text-white font-display font-extrabold text-xs uppercase">Месяцы 2–3</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <!-- Шаг 7 -->
+            <article class="roadmap-card dashed-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between" data-prio="P1" data-step-id="step-7">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 rounded bg-accent text-white font-display font-extrabold text-[11px] uppercase">P1 Критично</span>
+                    <span class="text-xs font-bold text-muted">Шаг 07</span>
+                  </div>
+                  <input type="checkbox" class="task-checkbox" data-id="step-7" onchange="toggleStep('step-7', this.checked)" aria-label="Отметить шаг 7" />
+                </div>
+                <h4 class="font-display font-extrabold text-base uppercase text-ink mb-2 step-title">
+                  Упаковка бренда E-motion и портфолио под чек 10+ млн ₸
+                </h4>
+                <p class="text-xs sm:text-sm text-inkSoft leading-relaxed mb-4">
+                  Оформить кейсы «Игр Будущего», «Игр Кочевников» и музейных инсталляций с акцентом на комплексное шоу-продюсирование и запоминаемость бренда E-motion.
+                </p>
+              </div>
+              <div class="pt-3 border-t border-ink/15 bg-paper/90 rounded-xl p-3 text-xs">
+                <span class="font-display font-extrabold uppercase text-ink block mb-1">Каким ресурсом решить:</span>
+                <span class="text-inkSoft">Продюсер-методолог + дизайнер презентаций + нейросети (Midjourney / Runway) для быстрых концептов.</span>
+              </div>
+            </article>
+
+            <!-- Шаг 8 -->
+            <article class="roadmap-card dashed-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between" data-prio="P1" data-step-id="step-8">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 rounded bg-accent text-white font-display font-extrabold text-[11px] uppercase">P1 Критично</span>
+                    <span class="text-xs font-bold text-muted">Шаг 08</span>
+                  </div>
+                  <input type="checkbox" class="task-checkbox" data-id="step-8" onchange="toggleStep('step-8', this.checked)" aria-label="Отметить шаг 8" />
+                </div>
+                <h4 class="font-display font-extrabold text-base uppercase text-ink mb-2 step-title">
+                  Системный заход через партнерскую сеть и «агашек» методом опережения
+                </h4>
+                <p class="text-xs sm:text-sm text-inkSoft leading-relaxed mb-4">
+                  Регулярные встречи с организаторами крупных событий и госпроектов + создание бесплатных концепт-тизеров до объявления тендера.
+                </p>
+              </div>
+              <div class="pt-3 border-t border-ink/15 bg-paper/90 rounded-xl p-3 text-xs">
+                <span class="font-display font-extrabold uppercase text-ink block mb-1">Каким ресурсом решить:</span>
+                <span class="text-inkSoft">Личное время Зули (освобожденное от рутины) + 1 выделенный моушн-дизайнер на пресейл-концепты.</span>
+              </div>
+            </article>
+
+            <!-- Шаг 9 -->
+            <article class="roadmap-card dashed-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between" data-prio="P2" data-step-id="step-9">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 rounded bg-ink text-white font-display font-extrabold text-[11px] uppercase">P2 Рост</span>
+                    <span class="text-xs font-bold text-muted">Шаг 09</span>
+                  </div>
+                  <input type="checkbox" class="task-checkbox" data-id="step-9" onchange="toggleStep('step-9', this.checked)" aria-label="Отметить шаг 9" />
+                </div>
+                <h4 class="font-display font-extrabold text-base uppercase text-ink mb-2 step-title">
+                  Масштабирование агентской сети (модель 3% с первых 5 сделок)
+                </h4>
+                <p class="text-xs sm:text-sm text-inkSoft leading-relaxed mb-4">
+                  Поиск 5–10 активных агентов по рынку, выдача им готового «пакета агента» с презентацией, примерами смет и скриптами захода к клиентам.
+                </p>
+              </div>
+              <div class="pt-3 border-t border-ink/15 bg-paper/90 rounded-xl p-3 text-xs">
+                <span class="font-display font-extrabold uppercase text-ink block mb-1">Каким ресурсом решить:</span>
+                <span class="text-inkSoft">Ассистент / BDM-менеджер + готовый Sales Kit.</span>
+              </div>
+            </article>
+
+            <!-- Шаг 10 -->
+            <article class="roadmap-card dashed-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between" data-prio="P2" data-step-id="step-10">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 rounded bg-ink text-white font-display font-extrabold text-[11px] uppercase">P2 Рост</span>
+                    <span class="text-xs font-bold text-muted">Шаг 10</span>
+                  </div>
+                  <input type="checkbox" class="task-checkbox" data-id="step-10" onchange="toggleStep('step-10', this.checked)" aria-label="Отметить шаг 10" />
+                </div>
+                <h4 class="font-display font-extrabold text-base uppercase text-ink mb-2 step-title">
+                  Кампания по сбору отзывов и рекомендаций по всей базе
+                </h4>
+                <p class="text-xs sm:text-sm text-inkSoft leading-relaxed mb-4">
+                  Провести 40 целевых касаний по всем текущим и прошлым контактам с запросом видео/текстового отзыва и прямой просьбой познакомить с коллегами по рынку.
+                </p>
+              </div>
+              <div class="pt-3 border-t border-ink/15 bg-paper/90 rounded-xl p-3 text-xs">
+                <span class="font-display font-extrabold uppercase text-ink block mb-1">Каким ресурсом решить:</span>
+                <span class="text-inkSoft">Ассистент + скрипт касаний от Зули.</span>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- ЭТАП 4 -->
+        <div class="stage-block" data-stage="4">
+          <div class="flex flex-wrap items-center justify-between gap-2 pb-3 mb-5 border-b-2 border-ink">
+            <h3 class="font-display font-black text-lg sm:text-xl uppercase text-ink">
+              Этап 4. Масштабирование продюсерского центра
+            </h3>
+            <span class="px-3 py-1 rounded-full bg-muted text-white font-display font-extrabold text-xs uppercase">Месяцы 4–12</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <!-- Шаг 11 -->
+            <article class="roadmap-card dashed-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between" data-prio="P2" data-step-id="step-11">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 rounded bg-ink text-white font-display font-extrabold text-[11px] uppercase">P2 Рост</span>
+                    <span class="text-xs font-bold text-muted">Шаг 11</span>
+                  </div>
+                  <input type="checkbox" class="task-checkbox" data-id="step-11" onchange="toggleStep('step-11', this.checked)" aria-label="Отметить шаг 11" />
+                </div>
+                <h4 class="font-display font-extrabold text-base uppercase text-ink mb-2 step-title">
+                  Найм продюсеров / PM и арт-директора + еженедельные спринты
+                </h4>
+                <p class="text-xs sm:text-sm text-inkSoft leading-relaxed mb-4">
+                  Внедрить правило «1 управляющий на 5 исполнителей» и регулярные еженедельные спринты, чтобы параллельно вести 2 крупных проекта без участия собственников в ночных рендерах.
+                </p>
+              </div>
+              <div class="pt-3 border-t border-ink/15 bg-paper/90 rounded-xl p-3 text-xs">
+                <span class="font-display font-extrabold uppercase text-ink block mb-1">Каким ресурсом решить:</span>
+                <span class="text-inkSoft">Система трекинга / Scrum-ритмы + HR.</span>
+              </div>
+            </article>
+
+            <!-- Шаг 12 -->
+            <article class="roadmap-card dashed-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between" data-prio="P3" data-step-id="step-12">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 rounded bg-muted text-white font-display font-extrabold text-[11px] uppercase">P3 Масштаб</span>
+                    <span class="text-xs font-bold text-muted">Шаг 12</span>
+                  </div>
+                  <input type="checkbox" class="task-checkbox" data-id="step-12" onchange="toggleStep('step-12', this.checked)" aria-label="Отметить шаг 12" />
+                </div>
+                <h4 class="font-display font-extrabold text-base uppercase text-ink mb-2 step-title">
+                  Имиджевые соцсети и коллаборации с блогерами / медиа
+                </h4>
+                <p class="text-xs sm:text-sm text-inkSoft leading-relaxed mb-4">
+                  Упаковка соцсетей под международный рынок (Дубай / ОАЭ) и точечные коллаборации с крупными блогерами и цифровыми платформами для прогрева VIP-заказчиков.
+                </p>
+              </div>
+              <div class="pt-3 border-t border-ink/15 bg-paper/90 rounded-xl p-3 text-xs">
+                <span class="font-display font-extrabold uppercase text-ink block mb-1">Каким ресурсом решить:</span>
+                <span class="text-inkSoft">Контент-продюсер / SMM-специалист на аутсорсе.</span>
+              </div>
+            </article>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- СЛАЙД 05/06: ТАЙМЛАЙН ВЗАИМОДЕЙСТВИЯ «КАК ЭТО РАБОТАЕТ»    -->
+    <!-- ========================================================= -->
+    <section id="process" data-slide="05/06" class="py-16 sm:py-20 border-b border-ink/15">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-accent">Раздел 04 • Система трекинга</span>
+          <h2 class="font-display-tight font-black text-3xl sm:text-5xl uppercase text-ink mt-2">
+            КАК ЭТО РАБОТАЕТ
+          </h2>
+          <p class="text-sm text-muted mt-2 max-w-xl">
+            Каждый бизнес уникален, но проверенный маршрут внедрения изменений строится через регулярные циклы и синхронизацию с командой.
+          </p>
+        </div>
+        <span class="text-xs font-bold uppercase tracking-wider text-muted md:text-right">
+          Прогнозируемая<br class="hidden md:inline" /> динамика перемен
+        </span>
+      </div>
+
+      <!-- Синяя кривая роста со слайда 07/10 -->
+      <div class="hidden lg:block mb-8 pt-2">
+        <svg class="w-full h-24 overflow-visible" viewBox="0 0 1000 90" fill="none" preserveAspectRatio="none">
+          <line x1="20" y1="55" x2="900" y2="55" stroke="#111111" stroke-width="1.4"/>
+          <polygon points="900,25 990,55 900,85" fill="#F6F4EF" stroke="#111111" stroke-width="1.4"/>
+          <polygon points="900,55 990,55 900,85" fill="#111111" fill-opacity="0.16"/>
+          <path d="M 30 72 C 160 22, 310 66, 470 40 C 630 16, 770 34, 950 10" stroke="#007AFF" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+          <!-- Пиксельные маркеры -->
+          <rect x="85" y="48" width="14" height="14" fill="#F6F4EF" stroke="#111111" stroke-width="1.5"/>
+          <rect x="85" y="48" width="7" height="7" fill="#111111"/>
+          <rect x="285" y="48" width="14" height="14" fill="#F6F4EF" stroke="#111111" stroke-width="1.5"/>
+          <rect x="292" y="55" width="7" height="7" fill="#111111"/>
+          <rect x="485" y="48" width="14" height="14" fill="#F6F4EF" stroke="#111111" stroke-width="1.5"/>
+          <rect x="485" y="48" width="7" height="7" fill="#111111"/>
+          <rect x="685" y="48" width="14" height="14" fill="#F6F4EF" stroke="#111111" stroke-width="1.5"/>
+          <rect x="692" y="55" width="7" height="7" fill="#111111"/>
+        </svg>
+      </div>
+
+      <!-- 5 этапов маршрута -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div class="rounded-2xl p-5 bg-white/80 border-2 border-accent flex flex-col justify-between">
+          <div>
+            <span class="inline-block px-2 py-0.5 rounded bg-accent text-white font-display font-extrabold text-[10px] uppercase mb-2">Пройдено ✓</span>
+            <h3 class="font-display font-black text-base uppercase text-ink">Диагностика</h3>
+            <p class="text-xs text-muted mt-1">120-минутный разбор модели</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-ink/15 text-xs font-medium text-inkSoft">
+            Оцифровка факта, поиск узких горлышек и дорожная карта 1:1.
+          </div>
+        </div>
+
+        <div class="dashed-card rounded-2xl p-5 flex flex-col justify-between">
+          <div>
+            <span class="inline-block px-2 py-0.5 rounded bg-ink text-white font-display font-extrabold text-[10px] uppercase mb-2">1 встреча</span>
+            <h3 class="font-display font-black text-base uppercase text-ink">Стратсессия</h3>
+            <p class="text-xs text-muted mt-1">120-минутная стратегическая сессия</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-ink/15 text-xs font-medium text-inkSoft">
+            Аналитика каналов, выбор «золотых задач» и быстрых побед.
+          </div>
+        </div>
+
+        <div class="dashed-card rounded-2xl p-5 flex flex-col justify-between">
+          <div>
+            <span class="inline-block px-2 py-0.5 rounded bg-ink text-white font-display font-extrabold text-[10px] uppercase mb-2">2 встреча</span>
+            <h3 class="font-display font-black text-base uppercase text-ink">Scrum-встреча</h3>
+            <p class="text-xs text-muted mt-1">120-минутная рабочая встреча</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-ink/15 text-xs font-medium text-inkSoft">
+            Работа с результатами первых тестов и снятие ограничений.
+          </div>
+        </div>
+
+        <div class="dashed-card rounded-2xl p-5 flex flex-col justify-between">
+          <div>
+            <span class="inline-block px-2 py-0.5 rounded bg-ink text-white font-display font-extrabold text-[10px] uppercase mb-2">3 встреча</span>
+            <h3 class="font-display font-black text-base uppercase text-ink">Команда</h3>
+            <p class="text-xs text-muted mt-1">120-минутная работа с командой</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-ink/15 text-xs font-medium text-inkSoft">
+            Комитмент ключевых ребят и присвоение целей x3 без саботажа.
+          </div>
+        </div>
+
+        <div class="dashed-card rounded-2xl p-5 flex flex-col justify-between sm:col-span-2 lg:col-span-1">
+          <div>
+            <span class="inline-block px-2 py-0.5 rounded bg-muted text-white font-display font-extrabold text-[10px] uppercase mb-2">... встречи</span>
+            <h3 class="font-display font-black text-base uppercase text-ink">Трекинг до цели</h3>
+            <p class="text-xs text-muted mt-1">Регулярные сессии по 120 минут</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-ink/15 text-xs font-medium text-inkSoft">
+            Поддержка, контроль фондов и устранение барьеров роста.
+          </div>
+        </div>
+      </div>
+
+      <!-- Плашка поддержки в чате со слайда 07/10 -->
+      <div class="mt-6 rounded-xl bg-white/75 border border-ink/15 px-4 py-3 flex items-center gap-3 text-xs sm:text-sm text-inkSoft">
+        <span class="w-5 h-5 rounded-full bg-accent text-white font-bold text-xs flex items-center justify-center flex-shrink-0">i</span>
+        <span>Бизнес-продюсер на связи в чате и дает решение на запрос за 8 часов, а также шаблоны и примеры артефактов на пути к цели.</span>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- СЛАЙД 06/06: БЛОК «ОБО МНЕ» ВЫВОРОТКОЙ (#111111)          -->
+    <!-- ========================================================= -->
+    <section id="about" data-slide="06/06" class="py-16 sm:py-20">
+      <div class="rounded-3xl bg-ink text-paper p-6 sm:p-10 lg:p-14 relative overflow-hidden shadow-xl">
+        <!-- Декоративная геометрия в стиле презентации -->
+        <div class="hidden sm:block absolute -right-14 -top-14 w-64 h-64 rounded-full border border-white/10 pointer-events-none"></div>
+        <div class="hidden sm:block absolute -right-4 -top-4 w-44 h-44 rounded-full border border-accent/35 pointer-events-none"></div>
+
+        <!-- Верхняя строка визитки -->
+        <div class="flex flex-wrap items-center justify-between gap-4 pb-8 border-b border-white/15">
+          <div class="inline-flex items-center gap-2.5 text-xs sm:text-sm text-paper/85">
+            <span class="w-5 h-5 rounded-full bg-accent text-white font-bold text-xs flex items-center justify-center flex-shrink-0">i</span>
+            <span>Система и стратегия вашего дела под творческим углом • Рост до $1 000 000+</span>
+          </div>
+          <span class="font-display font-extrabold text-xs uppercase tracking-widest text-accent">
+            БИЗНЕС ПРОДЮСЕР
+          </span>
+        </div>
+
+        <!-- Основная сетка блока Обо мне -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 my-8 sm:my-10 items-center">
+          <div class="lg:col-span-7">
+            <p class="text-xs font-bold uppercase tracking-widest text-accent mb-2">Автор диагностики и трекер</p>
+            <h2 class="font-display-tight font-black text-4xl sm:text-6xl uppercase text-white">
+              АЛЕКСЕЙ СТАСЮК
+            </h2>
+            <p class="text-base sm:text-lg font-bold text-accent mt-2">
+              CEO Big Bag Films • Бизнес-продюсер
+            </p>
+            <p class="text-sm sm:text-base text-paper/80 mt-5 leading-relaxed">
+              Помогаю владельцам продакшн-студий, агентств и креативных команд перейти от ручного управления и авралов к системному масштабированию. Внедренная система управления и финансов (<strong>Habbard Management System</strong>) позволила мне выйти из операционки собственного продакшна, сформировать фонды с пассивным доходом и развивать технологические стартапы.
+            </p>
+
+            <!-- 3 ключевых факта вывороткой -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
+              <div class="p-4 rounded-xl bg-white/5 border border-white/15">
+                <p class="font-display font-extrabold text-[11px] uppercase tracking-wider text-paper/60">БИЗНЕС-ОПЫТ</p>
+                <p class="font-display font-black text-xl text-white mt-1">с 2007 года</p>
+                <p class="text-xs text-paper/65 mt-1">19+ лет в продакшне и управлении командами</p>
+              </div>
+              <div class="p-4 rounded-xl bg-white/5 border border-accent/40">
+                <p class="font-display font-extrabold text-[11px] uppercase tracking-wider text-paper/60">СРЕДНИЙ РОСТ</p>
+                <p class="font-display font-black text-xl text-accent mt-1">+217%</p>
+                <p class="text-xs text-paper/65 mt-1">среднее значение роста показателей кейсов клиентов</p>
+              </div>
+              <div class="p-4 rounded-xl bg-white/5 border border-white/15">
+                <p class="font-display font-extrabold text-[11px] uppercase tracking-wider text-paper/60">ИНСТРУМЕНТЫ</p>
+                <p class="font-display font-black text-xl text-white mt-1">Фонды + Scrum</p>
+                <p class="text-xs text-paper/65 mt-1">прозрачная финмодель и еженедельные спринты</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Правая карточка с кнопками связи и скачивания презентации -->
+          <div class="lg:col-span-5 rounded-2xl bg-white/5 border border-white/15 p-6 sm:p-8 flex flex-col justify-between">
+            <div>
+              <h3 class="font-display font-black text-lg uppercase text-white mb-2">
+                Следующий шаг для E-motion
+              </h3>
+              <p class="text-xs sm:text-sm text-paper/75 leading-relaxed mb-6">
+                Обсуди распределение ролей с партнером, проведи сверку цифр 2025–2026 и напиши мне в Telegram — разберем результаты и запланируем встречу с командой.
+              </p>
+            </div>
+
+            <div class="space-y-3">
+              <!-- Кнопка 1: Личный Telegram -->
+              <a href="https://t.me/bigbagfilms_ceo" target="_blank" rel="noopener noreferrer"
+                 class="w-full flex items-center justify-between px-5 py-4 rounded-xl bg-accent hover:bg-accentHover text-white font-display font-extrabold text-xs uppercase tracking-wider transition-all group">
+                <span class="flex items-center gap-3">
+                  <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                  </svg>
+                  <span>Написать в Telegram</span>
+                </span>
+                <span class="transition-transform group-hover:translate-x-1">→</span>
+              </a>
+
+              <!-- Кнопка 2: Telegram-канал -->
+              <a href="https://t.me/stproducer" target="_blank" rel="noopener noreferrer"
+                 class="w-full flex items-center justify-between px-5 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/20 font-display font-extrabold text-xs uppercase tracking-wider transition-all group">
+                <span class="flex items-center gap-3">
+                  <svg class="w-5 h-5 text-accent flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                  </svg>
+                  <span>Telegram-канал «Бизнес Продюсер»</span>
+                </span>
+                <span class="transition-transform group-hover:translate-x-1">→</span>
+              </a>
+
+              <!-- Кнопка 3: Скачать / открыть презентацию -->
+              <a href="https://drive.google.com/file/d/1KzsTmSHuzBkiisQTsOxj6ryoXloK19Cq/view?usp=share_link" target="_blank" rel="noopener noreferrer"
+                 class="w-full flex items-center justify-between px-5 py-4 rounded-xl bg-paper hover:bg-white text-ink font-display font-extrabold text-xs uppercase tracking-wider transition-all group">
+                <span class="flex items-center gap-3">
+                  <svg class="w-5 h-5 text-accent flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                  </svg>
+                  <span>Скачать / открыть презентацию</span>
+                </span>
+                <span>PDF ↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Нижний колонтитул блока Обо мне -->
+        <div class="pt-6 border-t border-white/15 flex flex-wrap items-center justify-between gap-3 text-xs text-paper/60">
+          <span>Конфиденциально • Подготовлено специально для Зули (компания E-motion)</span>
+          <span class="font-display font-bold text-paper">E-MOTION 2027</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const STORAGE_KEY = 'emotion_2027_roadmap_v2';
+    const TOTAL_STEPS = 12;
+
+    // Загрузка сохраненного прогресса чек-листа
+    function initChecklist() {
+      let saved = {};
+      try {
+        saved = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+      } catch (e) {
+        saved = {};
+      }
+
+      document.querySelectorAll('.roadmap-card').forEach((card) => {
+        const stepId = card.getAttribute('data-step-id');
+        const checkbox = card.querySelector('.task-checkbox');
+        const title = card.querySelector('.step-title');
+        if (saved[stepId]) {
+          checkbox.checked = true;
+          title.classList.add('line-through', 'opacity-60');
+        }
+      });
+
+      updateProgressUI(saved);
+    }
+
+    // Переключение статуса шага
+    function toggleStep(stepId, isChecked) {
+      let saved = {};
+      try {
+        saved = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+      } catch (e) {
+        saved = {};
+      }
+
+      saved[stepId] = isChecked;
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+      } catch (e) {}
+
+      const card = document.querySelector(`.roadmap-card[data-step-id="${stepId}"]`);
+      if (card) {
+        const title = card.querySelector('.step-title');
+        if (isChecked) {
+          title.classList.add('line-through', 'opacity-60');
+        } else {
+          title.classList.remove('line-through', 'opacity-60');
+        }
+      }
+
+      updateProgressUI(saved);
+    }
+
+    // Синхронизация обеих шкал прогресса (в шапке и над дорожной картой)
+    function updateProgressUI(saved) {
+      const completed = Object.values(saved).filter(Boolean).length;
+      const percent = Math.round((completed / TOTAL_STEPS) * 100);
+
+      document.getElementById('header-progress-bar').style.width = `${percent}%`;
+      document.getElementById('header-progress-count').textContent = `${completed}/${TOTAL_STEPS}`;
+
+      document.getElementById('roadmap-progress-fill').style.width = `${percent}%`;
+      document.getElementById('roadmap-progress-percent').textContent = `${percent}%`;
+      document.getElementById('roadmap-progress-fraction').textContent = `Выполнено ${completed} из ${TOTAL_STEPS} шагов`;
+    }
+
+    // Фильтрация дорожной карты по приоритету
+    function filterRoadmap(prio) {
+      document.querySelectorAll('.prio-btn').forEach((btn) => {
+        if (btn.getAttribute('data-prio') === prio) {
+          btn.className = 'prio-btn px-3.5 py-2 rounded-xl text-xs font-display font-extrabold uppercase bg-ink text-white transition-all whitespace-nowrap';
+        } else {
+          btn.className = 'prio-btn px-3.5 py-2 rounded-xl text-xs font-display font-extrabold uppercase bg-white/80 border border-ink/20 text-ink hover:border-accent transition-all whitespace-nowrap';
+        }
+      });
+
+      document.querySelectorAll('.roadmap-card').forEach((card) => {
+        if (prio === 'ALL' || card.getAttribute('data-prio') === prio) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      // Скрываем заголовок этапа, если в нем не осталось видимых карточек
+      document.querySelectorAll('.stage-block').forEach((stage) => {
+        const visibleCards = stage.querySelectorAll('.roadmap-card:not(.hidden)').length;
+        if (visibleCards === 0) {
+          stage.classList.add('hidden');
+        } else {
+          stage.classList.remove('hidden');
+        }
+      });
+    }
+
+    // Калькулятор декомпозиции модели 2027
+    function recalculateModel() {
+      const revenue = Number(document.getElementById('inp-revenue').value); // млн ₸
+      const check = Number(document.getElementById('inp-check').value);     // млн ₸
+      const conv = Number(document.getElementById('inp-conv').value) / 100;
+      const share = Number(document.getElementById('inp-share').value) / 100;
+
+      document.getElementById('val-revenue').textContent = `${revenue} млн ₸`;
+      document.getElementById('val-check').textContent = `${check} млн ₸`;
+      document.getElementById('val-conv').textContent = `${Math.round(conv * 100)}%`;
+      document.getElementById('val-share').textContent = `${Math.round(share * 100)}%`;
+
+      // Базовая маржинальность модели 41.67% (150 млн чистой прибыли при 360 млн оборота)
+      const netProfit = Math.round(revenue * 0.4167);
+      const personalIncome = (netProfit * share).toFixed(1);
+      const personalIncomeMonth = ((netProfit * share) / 12).toFixed(1);
+
+      const contracts = Math.max(1, Math.ceil(revenue / check));
+      const contractsMonth = (contracts / 12).toFixed(1);
+
+      const leads = Math.ceil(contracts / conv);
+      const leadsMonth = (leads / 12).toFixed(1);
+
+      // Пул юрлиц ОУР (60% оборота с порогом 40 млн ₸)
+      const ipCount = Math.max(1, Math.ceil((revenue * 0.6) / 40));
+
+      document.getElementById('out-income').textContent = `${personalIncome} млн ₸`;
+      document.getElementById('out-income-month').textContent = `~${personalIncomeMonth} млн ₸ в месяц`;
+      document.getElementById('out-profit').textContent = `${netProfit} млн ₸`;
+      document.getElementById('out-ip').textContent = `Пул юрлиц ОУР: ${ipCount} ИП`;
+      document.getElementById('out-contracts').textContent = `${contracts} шт.`;
+      document.getElementById('out-contracts-month').textContent = `~${contractsMonth} контракта в месяц`;
+      document.getElementById('out-leads').textContent = `${leads} шт.`;
+      document.getElementById('out-leads-month').textContent = `~${leadsMonth} просчетов в месяц`;
+
+      const insightEl = document.getElementById('calc-insight');
+      if (contracts > 48) {
+        insightEl.innerHTML = `Внимание: <strong>${contracts} контрактов в год</strong> (${contractsMonth}/мес) при чеке <strong>${check} млн ₸</strong> потребуют расширения команды до 20+ человек и отдельного арт-директора. Попробуй увеличить средний чек.`;
+      } else {
+        insightEl.innerHTML = `При обороте <strong>${revenue} млн ₸</strong> и чеке <strong>${check} млн ₸</strong> достаточно закрывать <strong>${contractsMonth} сделки в месяц</strong> (из ${leadsMonth} пресейлов), чтобы выйти на <strong>${personalIncome} млн ₸</strong> личного дохода.`;
+      }
+    }
+
+    function resetCalculator() {
+      document.getElementById('inp-revenue').value = 360;
+      document.getElementById('inp-check').value = 10;
+      document.getElementById('inp-conv').value = 33;
+      document.getElementById('inp-share').value = 40;
+      recalculateModel();
+    }
+
+    // Подсветка активной пилюли меню и индикатора слайда при прокрутке
+    function initScrollSpy() {
+      const sections = document.querySelectorAll('section[data-slide]');
+      const indicator = document.getElementById('current-slide-indicator');
+      const pills = document.querySelectorAll('.nav-pill');
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const slideNum = entry.target.getAttribute('data-slide');
+              indicator.textContent = slideNum;
+
+              pills.forEach((pill) => {
+                if (pill.getAttribute('data-slide') === slideNum) {
+                  pill.classList.add('bg-ink', 'text-white');
+                  pill.classList.remove('text-muted');
+                } else {
+                  pill.classList.remove('bg-ink', 'text-white');
+                  pill.classList.add('text-muted');
+                }
+              });
+            }
+          });
+        },
+        { threshold: 0.28 }
+      );
+
+      sections.forEach((sec) => observer.observe(sec));
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      initChecklist();
+      recalculateModel();
+      initScrollSpy();
+    });
+  </script>
+</body>
+</html>
